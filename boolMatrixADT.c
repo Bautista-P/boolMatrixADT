@@ -173,3 +173,6 @@ void freeBoolMatrix(boolMatrixADT m)
     freeRow(m->FirstRow);
     free(m);
 }
+
+// agrego un comentario
+
