@@ -174,5 +174,5 @@ void freeBoolMatrix(boolMatrixADT m)
     free(m);
 }
 
-// agrego un comentario
+
 
