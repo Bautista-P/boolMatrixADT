@@ -5,7 +5,7 @@
 typedef struct cols
 {
     size_t col;
-    struct node * tail;
+    struct cols * tail;
 }Tcol;
 
 typedef Tcol * ListCol;
@@ -43,6 +43,7 @@ ListCol addCol(ListCol l , size_t col)
         ListCol aux = malloc(sizeof(*aux));
         aux->col = col;
         aux->tail = l;
+        return aux;
     }
     if(col > l->col)
         l->tail = addCol(l->tail, col);
