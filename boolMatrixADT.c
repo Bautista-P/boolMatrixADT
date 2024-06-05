@@ -23,6 +23,7 @@ typedef Trow * ListRow;
 typedef struct boolMatrixCDT
 {
     ListRow FirstRow;
+    boolean defaultValue;   // por defecto false
 }boolMatrixCDT;
 
 
@@ -108,7 +109,7 @@ ListRow removeRow(ListRow l , size_t row, size_t col)
 */
 void setValue(boolMatrixADT m, size_t row, size_t col, boolean value)
 {
-    if(value)
+    if(value != m->defaultValue)
     {
         m->FirstRow = addRow(m->FirstRow , row , col);
     }
@@ -144,7 +145,7 @@ boolean belongs(ListRow l,size_t row , size_t col)
  */
 boolean getValue(const boolMatrixADT m, size_t row, size_t col)
 {
-    return belongs(m->FirstRow, col, row);
+    return m->defaultValue != belongs(m->FirstRow, row, col);
 }
 
 void freeCol(ListCol l)
@@ -153,6 +154,10 @@ void freeCol(ListCol l)
         return;
     freeCol(l->tail);
     free(l);
+}
+
+void negate(boolMatrixADT m) {
+    m->defaultValue = ! m->defaultValue;
 }
 
 void freeRow(ListRow l)

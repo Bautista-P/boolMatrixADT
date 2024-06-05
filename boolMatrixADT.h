@@ -29,6 +29,9 @@ boolMatrixADT newBoolMatrix(void);
 */
 void setValue(boolMatrixADT m, size_t row, size_t col, boolean value);
 
+
+void negate(boolMatrixADT m);
+
 /*
  * Retorna el valor almacenado en m[row][col]
  */
